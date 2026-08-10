@@ -95,41 +95,62 @@ export default function RigidBodyEquilibrium() {
     mode: 'lines',
     line: {
       color: status === 'unstable' ? '#ef4444' : (status === 'indeterminate' ? '#f59e0b' : '#475569'),
-      width: 12
+      width: 22
     },
     name: 'Beam',
     hoverinfo: 'skip'
   });
 
-  // Left support drawing
-  const ly = -2.5;
+  // Left support drawing (Equilateral Pin & Roller)
+  const pinW = 0.7; // Half width
+  const pinH = 1.21; // Height for equilateral triangle (1.4 * sqrt(3)/2)
   if (leftSupport === 'pin') {
     traces.push({
-      x: [-0.4, 0, 0.4, -0.4],
-      y: [ly, 0, ly, ly],
+      x: [-pinW, 0, pinW, -pinW],
+      y: [-pinH, 0, -pinH, -pinH],
       fill: 'toself',
       mode: 'lines',
-      line: { color: '#3b82f6', width: 2 },
-      fillcolor: 'rgba(59, 130, 246, 0.2)',
+      line: { color: '#3b82f6', width: 2.5 },
+      fillcolor: 'rgba(59, 130, 246, 0.25)',
+      showlegend: false,
+      hoverinfo: 'skip'
+    });
+    // Ground line
+    traces.push({
+      x: [-pinW - 0.2, pinW + 0.2],
+      y: [-pinH, -pinH],
+      mode: 'lines',
+      line: { color: '#3b82f6', width: 3 },
       showlegend: false,
       hoverinfo: 'skip'
     });
   } else if (leftSupport === 'roller') {
+    const rH = 0.95;
     traces.push({
-      x: [-0.4, 0, 0.4, -0.4],
-      y: [ly + 0.6, 0, ly + 0.6, ly + 0.6],
+      x: [-pinW, 0, pinW, -pinW],
+      y: [-rH, 0, -rH, -rH],
       fill: 'toself',
       mode: 'lines',
-      line: { color: '#10b981', width: 2 },
-      fillcolor: 'rgba(16, 185, 129, 0.2)',
+      line: { color: '#10b981', width: 2.5 },
+      fillcolor: 'rgba(16, 185, 129, 0.25)',
       showlegend: false,
       hoverinfo: 'skip'
     });
+    // Roller wheels
     traces.push({
-      x: [-0.25, 0.25],
-      y: [ly + 0.3, ly + 0.3],
+      x: [-0.35, 0.35],
+      y: [-rH - 0.2, -rH - 0.2],
       mode: 'markers',
-      marker: { size: 6, color: '#10b981' },
+      marker: { size: 10, color: '#10b981', symbol: 'circle' },
+      showlegend: false,
+      hoverinfo: 'skip'
+    });
+    // Ground line below rollers
+    traces.push({
+      x: [-pinW - 0.2, pinW + 0.2],
+      y: [-rH - 0.4, -rH - 0.4],
+      mode: 'lines',
+      line: { color: '#10b981', width: 3 },
       showlegend: false,
       hoverinfo: 'skip'
     });
@@ -138,7 +159,7 @@ export default function RigidBodyEquilibrium() {
       x: [-0.3, -0.3],
       y: [-6, 6],
       mode: 'lines',
-      line: { color: '#475569', width: 8 },
+      line: { color: '#475569', width: 10 },
       showlegend: false,
       hoverinfo: 'skip'
     });
@@ -147,42 +168,61 @@ export default function RigidBodyEquilibrium() {
         x: [-0.9, -0.3],
         y: [y - 1, y + 1],
         mode: 'lines',
-        line: { color: '#94a3b8', width: 1.5 },
+        line: { color: '#94a3b8', width: 2 },
         showlegend: false,
         hoverinfo: 'skip'
       });
     }
   }
 
-  // Right support drawing
-  const ry = -2.5;
+  // Right support drawing (Equilateral Pin & Roller)
   if (rightSupport === 'pin') {
     traces.push({
-      x: [9.6, 10, 10.4, 9.6],
-      y: [ry, 0, ry, ry],
+      x: [10 - pinW, 10, 10 + pinW, 10 - pinW],
+      y: [-pinH, 0, -pinH, -pinH],
       fill: 'toself',
       mode: 'lines',
-      line: { color: '#3b82f6', width: 2 },
-      fillcolor: 'rgba(59, 130, 246, 0.2)',
+      line: { color: '#3b82f6', width: 2.5 },
+      fillcolor: 'rgba(59, 130, 246, 0.25)',
+      showlegend: false,
+      hoverinfo: 'skip'
+    });
+    // Ground line
+    traces.push({
+      x: [10 - pinW - 0.2, 10 + pinW + 0.2],
+      y: [-pinH, -pinH],
+      mode: 'lines',
+      line: { color: '#3b82f6', width: 3 },
       showlegend: false,
       hoverinfo: 'skip'
     });
   } else if (rightSupport === 'roller') {
+    const rH = 0.95;
     traces.push({
-      x: [9.6, 10, 10.4, 9.6],
-      y: [ry + 0.6, 0, ry + 0.6, ry + 0.6],
+      x: [10 - pinW, 10, 10 + pinW, 10 - pinW],
+      y: [-rH, 0, -rH, -rH],
       fill: 'toself',
       mode: 'lines',
-      line: { color: '#10b981', width: 2 },
-      fillcolor: 'rgba(16, 185, 129, 0.2)',
+      line: { color: '#10b981', width: 2.5 },
+      fillcolor: 'rgba(16, 185, 129, 0.25)',
       showlegend: false,
       hoverinfo: 'skip'
     });
+    // Roller wheels
     traces.push({
-      x: [9.75, 10.25],
-      y: [ry + 0.3, ry + 0.3],
+      x: [9.65, 10.35],
+      y: [-rH - 0.2, -rH - 0.2],
       mode: 'markers',
-      marker: { size: 6, color: '#10b981' },
+      marker: { size: 10, color: '#10b981', symbol: 'circle' },
+      showlegend: false,
+      hoverinfo: 'skip'
+    });
+    // Ground line below rollers
+    traces.push({
+      x: [10 - pinW - 0.2, 10 + pinW + 0.2],
+      y: [-rH - 0.4, -rH - 0.4],
+      mode: 'lines',
+      line: { color: '#10b981', width: 3 },
       showlegend: false,
       hoverinfo: 'skip'
     });
@@ -192,88 +232,88 @@ export default function RigidBodyEquilibrium() {
 
   // Point load P vector
   if (P > 0) {
-    const len = 3 + 4 * (P / 100);
+    const len = 3.5 + 4.5 * (P / 100);
     annotations.push({
       ax: xp, ay: len,
-      x: xp, y: 0.2,
+      x: xp, y: 0.3,
       xref: 'x', yref: 'y',
       axref: 'x', ayref: 'y',
       showarrow: true,
       arrowhead: 3,
-      arrowsize: 1,
-      arrowwidth: 3.5,
+      arrowsize: 1.3,
+      arrowwidth: 5.5,
       arrowcolor: '#ef4444',
       text: ''
     });
     annotations.push({
       x: xp,
-      y: (len + 0.2) / 2,
+      y: (len + 0.3) / 2,
       xref: 'x', yref: 'y',
       showarrow: false,
       text: `P = ${P.toFixed(0)} kN`,
-      font: { family: 'Outfit', size: 11, color: '#ef4444', weight: 'bold' },
-      xshift: 35
+      font: { family: 'Outfit, sans-serif', size: 14, color: '#ef4444', weight: 'bold' },
+      xshift: 40
     });
   }
 
   // Reactions vectors
   if (solved) {
     if (Ray !== 0) {
-      const r_len = 2.5 + 3.5 * (Math.abs(Ray) / 100);
+      const r_len = 2.8 + 3.8 * (Math.abs(Ray) / 100);
       const sign_ay = Ray > 0 ? 1 : -1;
       annotations.push({
-        ax: 0, ay: sign_ay < 0 ? 0.2 : -r_len,
-        x: 0, y: sign_ay < 0 ? -r_len : -0.2,
+        ax: 0, ay: sign_ay < 0 ? 0.3 : -r_len,
+        x: 0, y: sign_ay < 0 ? -r_len : -0.3,
         xref: 'x', yref: 'y',
         axref: 'x', ayref: 'y',
         showarrow: true,
-        arrowhead: 2,
-        arrowsize: 0.9,
-        arrowwidth: 3,
+        arrowhead: 3,
+        arrowsize: 1.2,
+        arrowwidth: 5,
         arrowcolor: '#3b82f6',
         text: ''
       });
-      const midY = ((sign_ay < 0 ? 0.2 : -r_len) + (sign_ay < 0 ? -r_len : -0.2)) / 2;
+      const midY = ((sign_ay < 0 ? 0.3 : -r_len) + (sign_ay < 0 ? -r_len : -0.3)) / 2;
       annotations.push({
         x: 0,
         y: midY,
         xref: 'x', yref: 'y',
         showarrow: false,
         text: `Ray = ${Ray.toFixed(1)} kN`,
-        font: { family: 'Outfit', size: 10, color: '#3b82f6', weight: 'bold' },
-        xshift: -32
+        font: { family: 'Outfit, sans-serif', size: 13, color: '#3b82f6', weight: 'bold' },
+        xshift: -36
       });
     }
 
     if (Rby !== 0) {
-      const r_len = 2.5 + 3.5 * (Math.abs(Rby) / 100);
+      const r_len = 2.8 + 3.8 * (Math.abs(Rby) / 100);
       const sign_by = Rby > 0 ? 1 : -1;
       annotations.push({
-        ax: 10, ay: sign_by < 0 ? 0.2 : -r_len,
-        x: 10, y: sign_by < 0 ? -r_len : -0.2,
+        ax: 10, ay: sign_by < 0 ? 0.3 : -r_len,
+        x: 10, y: sign_by < 0 ? -r_len : -0.3,
         xref: 'x', yref: 'y',
         axref: 'x', ayref: 'y',
         showarrow: true,
-        arrowhead: 2,
-        arrowsize: 0.9,
-        arrowwidth: 3,
+        arrowhead: 3,
+        arrowsize: 1.2,
+        arrowwidth: 5,
         arrowcolor: '#10b981',
         text: ''
       });
-      const midY = ((sign_by < 0 ? 0.2 : -r_len) + (sign_by < 0 ? -r_len : -0.2)) / 2;
+      const midY = ((sign_by < 0 ? 0.3 : -r_len) + (sign_by < 0 ? -r_len : -0.3)) / 2;
       annotations.push({
         x: 10,
         y: midY,
         xref: 'x', yref: 'y',
         showarrow: false,
         text: `Rby = ${Rby.toFixed(1)} kN`,
-        font: { family: 'Outfit', size: 10, color: '#10b981', weight: 'bold' },
-        xshift: 32
+        font: { family: 'Outfit, sans-serif', size: 13, color: '#10b981', weight: 'bold' },
+        xshift: 36
       });
     }
 
     if (Ma !== 0) {
-      const r_arc = 0.8 + Math.min(1.2, Math.abs(Ma) / 600);
+      const r_arc = 1.0 + Math.min(1.4, Math.abs(Ma) / 600);
       const num_points = 30;
       let start_ang = -30 * Math.PI / 180;
       let end_ang = 210 * Math.PI / 180;
@@ -292,7 +332,7 @@ export default function RigidBodyEquilibrium() {
         x: arcX,
         y: arcY,
         mode: 'lines',
-        line: { color: '#8b5cf6', width: 3.0 },
+        line: { color: '#8b5cf6', width: 4.5 },
         showlegend: false,
         hoverinfo: 'skip'
       });
@@ -302,7 +342,7 @@ export default function RigidBodyEquilibrium() {
       const dir = Ma > 0 ? -1.0 : 1.0;
       const tx = dir * (-Math.sin(end_ang));
       const ty = dir * Math.cos(end_ang);
-      const arrow_len = 0.45;
+      const arrow_len = 0.5;
       const tail_x = end_x - arrow_len * tx;
       const tail_y = end_y - arrow_len * ty;
 
@@ -312,9 +352,9 @@ export default function RigidBodyEquilibrium() {
         xref: 'x', yref: 'y',
         axref: 'x', ayref: 'y',
         showarrow: true,
-        arrowhead: 2,
-        arrowsize: 1.0,
-        arrowwidth: 3,
+        arrowhead: 3,
+        arrowsize: 1.2,
+        arrowwidth: 4.5,
         arrowcolor: '#8b5cf6',
         text: ''
       });
@@ -323,10 +363,10 @@ export default function RigidBodyEquilibrium() {
         x: end_x,
         y: end_y,
         text: `Ma = ${Ma.toFixed(0)} kNm`,
-        font: { family: 'Outfit', size: 10, color: '#8b5cf6', weight: 'bold' },
+        font: { family: 'Outfit, sans-serif', size: 13, color: '#8b5cf6', weight: 'bold' },
         showarrow: false,
-        xshift: end_x > 0 ? 35 : -35,
-        yshift: end_y > 0 ? 15 : -15
+        xshift: end_x > 0 ? 38 : -38,
+        yshift: end_y > 0 ? 18 : -18
       });
     }
   }
@@ -458,7 +498,7 @@ export default function RigidBodyEquilibrium() {
 
           {/* Plotly Chart */}
           <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-light)', borderRadius: '12px', padding: '10px' }}>
-            <Plot data={traces} layout={layout} useResizeHandler style={{ width: '100%', height: '280px' }} config={{ responsive: true, displayModeBar: false }} />
+            <Plot data={traces} layout={layout} useResizeHandler style={{ width: '100%', height: '340px' }} config={{ responsive: true, displayModeBar: false }} />
           </div>
 
           {/* Reaction Metrics Cards */}
