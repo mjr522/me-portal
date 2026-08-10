@@ -233,7 +233,7 @@ export default function ME330_Lesson2({ topicName, onComplete }) {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
               {/* Net Tension */}
               <div style={{ backgroundColor: '#111827', padding: '16px', borderRadius: '10px', border: '1px solid #1f2937' }}>
-                <div style={{ fontSize: '12px', color: '#9ca3af' }}>Net Plate Tension \sigma_{net}</div>
+                <div style={{ fontSize: '12px', color: '#9ca3af' }}>Net Plate Tension <MathInline math="\sigma_{net}" /></div>
                 <div style={{ fontSize: '22px', fontWeight: 'bold', color: fsNet < 1 ? '#f87171' : '#60a5fa', margin: '4px 0' }}>
                   {sigmaNetMPa.toFixed(1)} <span style={{ fontSize: '14px' }}>MPa</span>
                 </div>
@@ -391,13 +391,13 @@ export default function ME330_Lesson2({ topicName, onComplete }) {
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginTop: '12px' }}>
                   <div style={{ backgroundColor: '#111827', padding: '12px', borderRadius: '6px' }}>
                     <div style={{ color: '#ec4899', fontWeight: 'bold' }}>Single Shear (1 Plane)</div>
-                    <div>\tau_{single} = 191.0 MPa</div>
-                    <div>\sigma_{bearing} = 300.0 MPa</div>
+                    <div><MathInline math="\tau_{single} = 191.0\text{ MPa}" /></div>
+                    <div><MathInline math="\sigma_{bearing} = 300.0\text{ MPa}" /></div>
                   </div>
                   <div style={{ backgroundColor: '#111827', padding: '12px', borderRadius: '6px' }}>
                     <div style={{ color: '#3b82f6', fontWeight: 'bold' }}>Double Shear (2 Planes)</div>
-                    <div>\tau_{double} = 95.5 MPa (Halved!)</div>
-                    <div>\sigma_{bearing} = 300.0 MPa (Unchanged!)</div>
+                    <div><MathInline math="\tau_{double} = 95.5\text{ MPa}" /> (Halved!)</div>
+                    <div><MathInline math="\sigma_{bearing} = 300.0\text{ MPa}" /> (Unchanged!)</div>
                   </div>
                 </div>
               </div>

@@ -379,13 +379,13 @@ export default function ME330_Lesson4({ topicName, onComplete }) {
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginTop: '12px' }}>
                   <div style={{ backgroundColor: '#111827', padding: '12px', borderRadius: '6px' }}>
                     <div>Bar 1 (L = 1.0 m)</div>
-                    <div>\delta_T1 = 0.60 mm</div>
-                    <div>\sigma_{thermal1} = 120.0 MPa</div>
+                    <div><MathInline math="\delta_{T1} = 0.60\text{ mm}" /></div>
+                    <div><MathInline math="\sigma_{thermal1} = 120.0\text{ MPa}" /></div>
                   </div>
                   <div style={{ backgroundColor: '#111827', padding: '12px', borderRadius: '6px' }}>
                     <div>Bar 2 (L = 2.0 m)</div>
-                    <div>\delta_T2 = 1.20 mm</div>
-                    <div>\sigma_{thermal2} = 120.0 MPa</div>
+                    <div><MathInline math="\delta_{T2} = 1.20\text{ mm}" /></div>
+                    <div><MathInline math="\sigma_{thermal2} = 120.0\text{ MPa}" /></div>
                   </div>
                 </div>
               </div>

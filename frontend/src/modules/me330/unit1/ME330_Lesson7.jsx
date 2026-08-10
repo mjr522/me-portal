@@ -254,7 +254,7 @@ export default function ME330_Lesson7({ topicName, onComplete }) {
               </div>
 
               <div style={{ backgroundColor: '#111827', padding: '16px', borderRadius: '10px', border: '1px solid #1f2937' }}>
-                <div style={{ fontSize: '12px', color: '#9ca3af' }}>Nominal Stress \sigma_{nom}</div>
+                <div style={{ fontSize: '12px', color: '#9ca3af' }}>Nominal Stress <MathInline math="\sigma_{nom}" /></div>
                 <div style={{ fontSize: '22px', fontWeight: 'bold', color: '#3b82f6', margin: '4px 0' }}>
                   {sigmaNomMPa.toFixed(1)} <span style={{ fontSize: '14px' }}>MPa</span>
                 </div>
@@ -262,7 +262,7 @@ export default function ME330_Lesson7({ topicName, onComplete }) {
               </div>
 
               <div style={{ backgroundColor: '#111827', padding: '16px', borderRadius: '10px', border: '1px solid #1f2937' }}>
-                <div style={{ fontSize: '12px', color: '#9ca3af' }}>Peak Stress \sigma_{max}</div>
+                <div style={{ fontSize: '12px', color: '#9ca3af' }}>Peak Stress <MathInline math="\sigma_{\max}" /></div>
                 <div style={{ fontSize: '22px', fontWeight: 'bold', color: '#f472b6', margin: '4px 0' }}>
                   {sigmaMaxMPa.toFixed(1)} <span style={{ fontSize: '14px' }}>MPa</span>
                 </div>

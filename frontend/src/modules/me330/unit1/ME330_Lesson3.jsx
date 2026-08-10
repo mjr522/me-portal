@@ -271,7 +271,7 @@ export default function ME330_Lesson3({ topicName, onComplete }) {
               </div>
 
               <div style={{ backgroundColor: '#111827', padding: '16px', borderRadius: '10px', border: '1px solid #1f2937' }}>
-                <div style={{ fontSize: '12px', color: '#9ca3af' }}>Max Stress \sigma_{max}</div>
+                <div style={{ fontSize: '12px', color: '#9ca3af' }}>Max Stress <MathInline math="\sigma_{\max}" /></div>
                 <div style={{ fontSize: '22px', fontWeight: 'bold', color: '#34d399', margin: '4px 0' }}>
                   {Math.max(stress1MPa, stress2MPa).toFixed(1)} <span style={{ fontSize: '14px' }}>MPa</span>
                 </div>

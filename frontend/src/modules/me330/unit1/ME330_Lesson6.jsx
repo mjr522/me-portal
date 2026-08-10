@@ -309,8 +309,8 @@ export default function ME330_Lesson6({ topicName, onComplete }) {
               <div style={{ backgroundColor: '#064e3b', padding: '16px', borderRadius: '8px', marginBottom: '20px', border: '1px solid #10b981' }}>
                 <h4 style={{ margin: 0, color: '#34d399', fontSize: '16px' }}>Observation Results</h4>
                 <div style={{ marginTop: '12px', fontSize: '15px' }}>
-                  <div>Rubber Dilatation e_{rubber} = \frac{1-2(0.499)}{0.05} (-300) = -0.012 \times 10^{-3} (Nearly 0!)</div>
-                  <div>Steel Dilatation e_{steel} = \frac{1-2(0.30)}{200} (-300) = -0.600 \times 10^{-3} (50x larger volumetric compression!)</div>
+                  <div><MathInline math="e_{rubber} = \frac{1-2(0.499)}{0.05} (-300) = -0.012 \times 10^{-3}" /> (Nearly 0!)</div>
+                  <div><MathInline math="e_{steel} = \frac{1-2(0.30)}{200} (-300) = -0.600 \times 10^{-3}" /> (50x larger volumetric compression!)</div>
                 </div>
               </div>
 

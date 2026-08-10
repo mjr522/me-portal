@@ -263,7 +263,7 @@ export default function ME330_Lesson8({ topicName, onComplete }) {
               </div>
 
               <div style={{ backgroundColor: '#111827', padding: '16px', borderRadius: '10px', border: '1px solid #1f2937' }}>
-                <div style={{ fontSize: '12px', color: '#9ca3af' }}>Max Shear Stress \tau_{max}</div>
+                <div style={{ fontSize: '12px', color: '#9ca3af' }}>Max Shear Stress <MathInline math="\tau_{\max}" /></div>
                 <div style={{ fontSize: '20px', fontWeight: 'bold', color: tauMaxMPa > mat.tau_yield ? '#f87171' : '#34d399', margin: '4px 0' }}>
                   {tauMaxMPa.toFixed(1)} <span style={{ fontSize: '14px' }}>MPa</span>
                 </div>
@@ -381,15 +381,15 @@ export default function ME330_Lesson8({ topicName, onComplete }) {
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginTop: '12px' }}>
                   <div style={{ backgroundColor: '#111827', padding: '12px', borderRadius: '6px' }}>
                     <div style={{ color: '#ec4899', fontWeight: 'bold' }}>Solid Shaft (d = 40 mm)</div>
-                    <div>J = 2.513 \times 10^{-7} m⁴</div>
-                    <div>\tau_{max} = 79.6 MPa</div>
-                    <div>\phi = 4.41°</div>
+                    <div><MathInline math="J = 2.513 \times 10^{-7}\text{ m}^4" /></div>
+                    <div><MathInline math="\tau_{\max} = 79.6\text{ MPa}" /></div>
+                    <div><MathInline math="\phi = 4.41^\circ" /></div>
                   </div>
                   <div style={{ backgroundColor: '#111827', padding: '12px', borderRadius: '6px' }}>
                     <div style={{ color: '#3b82f6', fontWeight: 'bold' }}>Hollow Shaft (50 / 30 mm)</div>
-                    <div>J = 5.341 \times 10^{-7} m⁴ (More than 2x larger!)</div>
-                    <div>\tau_{max} = 46.8 MPa (41% reduction in stress!)</div>
-                    <div>\phi = 2.07° (53% reduction in twist!)</div>
+                    <div><MathInline math="J = 5.341 \times 10^{-7}\text{ m}^4" /> (More than 2x larger!)</div>
+                    <div><MathInline math="\tau_{\max} = 46.8\text{ MPa}" /> (41% reduction in stress!)</div>
+                    <div><MathInline math="\phi = 2.07^\circ" /> (53% reduction in twist!)</div>
                   </div>
                 </div>
               </div>
