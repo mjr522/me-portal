@@ -293,19 +293,19 @@ export default function BeamSimulator() {
         <h2 style={{ fontSize: '1.4rem', fontWeight: 700, marginBottom: '15px' }}>📝 Detailed Calculation Walkthrough</h2>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', background: '#f1f5f9', borderRadius: '12px', padding: '20px', fontSize: '0.9rem' }}>
           <div>
-            <h4 style={{ marginTop: 0, marginBottom: '10px' }}>Step 1: Calculate Total Equivalent Load ($W$)</h4>
-            <p>$W = w \cdot L = {w.toFixed(2)}\text{{ kN/m}} \cdot {L.toFixed(2)}\text{{ m}} = {W.toFixed(2)}\text{{ kN}}$</p>
-            <h4 style={{ marginTop: '15px', marginBottom: '10px' }}>Step 2: Sum of Moments about Support A ($\sum M_A = 0$)</h4>
-            <p>$\sum M_A = 0 \implies R_B \cdot L - W \cdot \frac{{L}}{{2}} = 0$</p>
-            <p>$R_B \cdot {L.toFixed(2)} = {W.toFixed(2)} \cdot {(L / 2).toFixed(2)} = {(W * L / 2).toFixed(2)}\text{{ kN·m}}$</p>
-            <p><b>$R_B = {RB.toFixed(2)}\text{{ kN}}$</b></p>
+            <h4 style={{ marginTop: 0, marginBottom: '10px' }}>Step 1: Calculate Total Equivalent Load (W)</h4>
+            <p>W = w · L = {w.toFixed(2)} kN/m · {L.toFixed(2)} m = <b>{W.toFixed(2)} kN</b></p>
+            <h4 style={{ marginTop: '15px', marginBottom: '10px' }}>Step 2: Sum of Moments about Support A (ΣM_A = 0)</h4>
+            <p>ΣM_A = 0 ⇒ R_B · L - W · (L / 2) = 0</p>
+            <p>R_B · {L.toFixed(2)} = {W.toFixed(2)} · {(L / 2).toFixed(2)} = {(W * L / 2).toFixed(2)} kN·m</p>
+            <p><b>R_B = {RB.toFixed(2)} kN</b></p>
           </div>
           <div>
-            <h4 style={{ marginTop: 0, marginBottom: '10px' }}>Step 3: Sum of Vertical Forces ($\sum F_y = 0$)</h4>
-            <p>$\sum F_y = 0 \implies R_A + R_B - W = 0$</p>
-            <p>$R_A = W - R_B = {W.toFixed(2)} - {RB.toFixed(2)} = \mathbf{{{RA.toFixed(2)}}\text{{ kN}}}$</p>
+            <h4 style={{ marginTop: 0, marginBottom: '10px' }}>Step 3: Sum of Vertical Forces (ΣF_y = 0)</h4>
+            <p>ΣF_y = 0 ⇒ R_A + R_B - W = 0</p>
+            <p>R_A = W - R_B = {W.toFixed(2)} - {RB.toFixed(2)} = <b>{RA.toFixed(2)} kN</b></p>
             <h4 style={{ marginTop: '15px', marginBottom: '10px' }}>Step 4: Verification of Symmetry</h4>
-            <p><b>$R_A = R_B = \frac{{w \cdot L}}{{2}} = \frac{{{w.toFixed(2)} \cdot {L.toFixed(2)}}}{{2}} = {RA.toFixed(2)}\text{{ kN}}$</b></p>
+            <p><b>R_A = R_B = (w · L) / 2 = ({w.toFixed(2)} · {L.toFixed(2)}) / 2 = {RA.toFixed(2)} kN</b></p>
           </div>
         </div>
       </div>

@@ -222,10 +222,10 @@ export default function ParallelAxis() {
           {/* Equations Box */}
           <div style={{ background: '#f1f5f9', borderRadius: '8px', padding: '12px 16px', fontFamily: 'monospace', fontSize: '0.82rem', marginTop: '15px', color: '#1e293b', borderLeft: '4px solid #8b5cf6', lineHeight: 1.5 }}>
             <div><b>Parallel Axis Theorem calculations:</b></div>
-            <div>• Composite Centroid: <b>ȳ = $(A_f y_f + A_w y_w) / A_{{tot}}$</b></div>
+            <div>• Composite Centroid: <b>{"ȳ = (A_f y_f + A_w y_w) / A_{tot}"}</b></div>
             <div>&nbsp;&nbsp;ȳ = ({Af}·{yf} + {Aw}·{yw}) / {Atot} = <b>{yBar.toFixed(2)} mm</b></div>
-            <div>• Flange shift contribution: <b>$I_{{xf}} + A_f d_f^2$</b> = {Ixf.toFixed(0)} + {Af}·({df.toFixed(1)})² = <b>{IxFlange.toExponential(3)} $\text{mm}^4$</b></div>
-            <div>• Web shift contribution: <b>$I_{{xw}} + A_w d_w^2$</b> = {Ixw.toFixed(0)} + {Aw}·({dw.toFixed(1)})² = <b>{IxWeb.toExponential(3)} $\text{mm}^4$</b></div>
+            <div>• Flange shift contribution: <b>{"$I_{xf} + A_f d_f^2$"}</b> = {Ixf.toFixed(0)} + {Af}·({df.toFixed(1)})² = <b>{IxFlange.toExponential(3)} $\text{mm}^4$</b></div>
+            <div>• Web shift contribution: <b>{"$I_{xw} + A_w d_w^2$"}</b> = {Ixw.toFixed(0)} + {Aw}·({dw.toFixed(1)})² = <b>{IxWeb.toExponential(3)} $\text{mm}^4$</b></div>
             <div>• Total composite inertia: <b>$I_x$</b> = <b>{(IxTot / 1e4).toFixed(2)} $\times 10^4\text{ mm}^4$</b></div>
           </div>
         </div>
