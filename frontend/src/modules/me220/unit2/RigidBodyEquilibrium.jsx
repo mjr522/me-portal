@@ -281,7 +281,8 @@ export default function RigidBodyEquilibrium() {
         showarrow: false,
         text: `Ray = ${Ray.toFixed(1)} kN`,
         font: { family: 'Outfit, sans-serif', size: 13, color: '#3b82f6', weight: 'bold' },
-        xshift: -36
+        xanchor: 'right',
+        xshift: -12
       });
     }
 
@@ -308,7 +309,8 @@ export default function RigidBodyEquilibrium() {
         showarrow: false,
         text: `Rby = ${Rby.toFixed(1)} kN`,
         font: { family: 'Outfit, sans-serif', size: 13, color: '#10b981', weight: 'bold' },
-        xshift: 36
+        xanchor: 'left',
+        xshift: 12
       });
     }
 
