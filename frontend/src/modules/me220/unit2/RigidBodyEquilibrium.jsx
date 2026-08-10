@@ -604,7 +604,7 @@ export default function RigidBodyEquilibrium() {
           padding: '20px',
           display: 'flex',
           flexDirection: 'column',
-          justify سوا: 'space-between',
+          justifyContent: 'space-between',
           gap: '16px'
         }}>
           <div>
