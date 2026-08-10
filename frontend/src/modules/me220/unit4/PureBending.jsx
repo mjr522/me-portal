@@ -204,7 +204,7 @@ export default function PureBending() {
           </span>
         </div>
         <ul>
-          <li>Apply the flexure formula ($\sigma = -\frac{M y}{I}$) to determine normal stress distributions.</li>
+          <li>{"Apply the flexure formula (\\sigma = -\\frac{M y}{I}) to determine normal stress distributions."}</li>
           <li>Identify tension and compression zones across beam cross-sections based on moment signs.</li>
           <li>Evaluate flexural yield thresholds under severe bending loads.</li>
         </ul>

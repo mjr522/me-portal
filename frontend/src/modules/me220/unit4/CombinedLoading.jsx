@@ -196,7 +196,7 @@ export default function CombinedLoading() {
           </span>
         </div>
         <ul>
-          <li>Apply the principle of superposition to combined axial and bending loads ($\sigma = \pm \frac{P}{A} \pm \frac{M y}{I}$).</li>
+          <li>{"Apply the principle of superposition to combined axial and bending loads (\\sigma = \\pm \\frac{P}{A} \\pm \\frac{M y}{I})."}</li>
           <li>Analyze eccentric column loading and calculate induced bending moments ($M = P \cdot e$).</li>
           <li>Determine the critical eccentricity ($e_{crit} = h/6$) for zero tension limits (kern of section).</li>
         </ul>
