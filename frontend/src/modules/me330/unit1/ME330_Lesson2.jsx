@@ -4,16 +4,28 @@ import katex from 'katex';
 import 'katex/dist/katex.min.css';
 
 function MathInline({ math }) {
-  const html = katex.renderToString(math, { throwOnError: false });
-  return <span dangerouslySetInnerHTML={{ __html: html }} />;
+  if (!math) return null;
+  try {
+    const k = katex?.default || katex;
+    const html = k.renderToString(math, { throwOnError: false });
+    return <span dangerouslySetInnerHTML={{ __html: html }} />;
+  } catch (e) {
+    return <span>{math}</span>;
+  }
 }
 
 function MathBlock({ math }) {
-  const html = katex.renderToString(math, { displayMode: true, throwOnError: false });
-  return <div dangerouslySetInnerHTML={{ __html: html }} />;
+  if (!math) return null;
+  try {
+    const k = katex?.default || katex;
+    const html = k.renderToString(math, { displayMode: true, throwOnError: false });
+    return <div dangerouslySetInnerHTML={{ __html: html }} />;
+  } catch (e) {
+    return <div>{math}</div>;
+  }
 }
 
-export default function ME330_Lesson2() {
+export default function ME330_Lesson2({ topicName, onComplete }) {
   const [phase, setPhase] = useState('instructions');
   const [poeChoice, setPoeChoice] = useState(null);
 

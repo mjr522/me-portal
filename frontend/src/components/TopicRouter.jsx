@@ -74,70 +74,80 @@ const ME330_Lesson37 = lazy(() => import('../modules/me330/unit4/ME330_Lesson37'
 const ME330_Lesson38 = lazy(() => import('../modules/me330/unit4/ME330_Lesson38'));
 const ME330_Lesson40 = lazy(() => import('../modules/me330/unit4/ME330_Lesson40'));
 
-export default function TopicRouter({ topicName, unitKey, onComplete }) {
+export default function TopicRouter({ courseId, topicName, unitKey, onComplete }) {
   const renderModule = () => {
-    // --- ME 220 ROUTING ---
-    if (topicName.includes("Lesson 3: Statics of Particles")) return <VectorAddition topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 4: Forces & Equilibrium")) return <VectorResolution topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 5: Solving 2D Equilibrium")) return <ParticleEquilibrium topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 6: Forces and Moments")) return <MomentTorque topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 7: Couples and Force-Couple")) return <CoupleSystems topicName={topicName} onComplete={onComplete} />;
+    if (courseId === 'me220') {
+      if (topicName.includes("Lesson 3: Statics of Particles")) return <VectorAddition topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 4: Forces & Equilibrium")) return <VectorResolution topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 5: Solving 2D Equilibrium")) return <ParticleEquilibrium topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 6: Forces and Moments")) return <MomentTorque topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 7: Couples and Force-Couple")) return <CoupleSystems topicName={topicName} onComplete={onComplete} />;
 
-    if (topicName.includes("Lesson 11: Intro to Equilibrium")) return <RigidBodyEquilibrium topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 14: Centroids and Distributed")) return <BeamSimulator topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 15: Truss Analysis:  Method of Joints")) return <TrussJoints topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 16: Truss Analysis:  Method of Sections")) return <TrussSections topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 11: Intro to Equilibrium")) return <RigidBodyEquilibrium topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 14: Centroids and Distributed")) return <BeamSimulator topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 15: Truss Analysis:  Method of Joints")) return <TrussJoints topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 16: Truss Analysis:  Method of Sections")) return <TrussSections topicName={topicName} onComplete={onComplete} />;
 
-    if (topicName.includes("Lesson 20: Normal Stress")) return <NormalStress topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 21: Normal Stress & Strain")) return <StressStrainAxial topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 23: Design Considerations")) return <DesignConsiderations topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 25: Shear Stress")) return <ShearStress topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 26: Shear Stress due to Torsion")) return <TorsionShear topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 27: Angle of Twist")) return <AngleOfTwist topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 20: Normal Stress")) return <NormalStress topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 21: Normal Stress & Strain")) return <StressStrainAxial topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 23: Design Considerations")) return <DesignConsiderations topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 25: Shear Stress")) return <ShearStress topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 26: Shear Stress due to Torsion")) return <TorsionShear topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 27: Angle of Twist")) return <AngleOfTwist topicName={topicName} onComplete={onComplete} />;
 
-    if (topicName.includes("Lesson 30: Area Moment of Inertia")) return <AreaMomentInertia topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 31: Area Moment of Inertia:  Parallel")) return <ParallelAxis topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 32: Pure Bending")) return <PureBending topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 33: Stresses and Deformations due to Bending")) return <BeamDeflection topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 34: Combined Loading")) return <CombinedLoading topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 36: Shear & Bending Moment Diagrams")) return <ShearMomentDiagrams topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 37: Engineering Design Process")) return <DesignProcess topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 30: Area Moment of Inertia")) return <AreaMomentInertia topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 31: Area Moment of Inertia:  Parallel")) return <ParallelAxis topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 32: Pure Bending")) return <PureBending topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 33: Stresses and Deformations due to Bending")) return <BeamDeflection topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 34: Combined Loading")) return <CombinedLoading topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 36: Shear & Bending Moment Diagrams")) return <ShearMomentDiagrams topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 37: Engineering Design Process")) return <DesignProcess topicName={topicName} onComplete={onComplete} />;
+    }
 
-    // --- ME 330 ROUTING ---
-    // Unit 1
-    if (topicName.includes("Lesson 1: Course Overview & Stress/Strain Fundamentals")) return <ME330_Lesson1 topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 2: Stress, Strain & Axially Loaded Members")) return <ME330_Lesson2 topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 3: Indeterminate Structures I")) return <ME330_Lesson3 topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 4: Indeterminate Structures II")) return <ME330_Lesson4 topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 5: Indeterminate Structures III")) return <ME330_Lesson5 topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 6: Generalized Hooke's Law")) return <ME330_Lesson6 topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 7: St. Venant's Principle")) return <ME330_Lesson7 topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 8: Torsion - Shearing Stress")) return <ME330_Lesson8 topicName={topicName} onComplete={onComplete} />;
+    if (courseId === 'me330') {
+      // Unit 1
+      if (topicName.includes("Lesson 1:")) return <ME330_Lesson1 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 2:")) return <ME330_Lesson2 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 3:")) return <ME330_Lesson3 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 4:")) return <ME330_Lesson4 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 5:")) return <ME330_Lesson5 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 6:")) return <ME330_Lesson6 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 7:")) return <ME330_Lesson7 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 8:")) return <ME330_Lesson8 topicName={topicName} onComplete={onComplete} />;
 
-    // Unit 2
-    if (topicName.includes("Lesson 9: Beams in Bending & Flexure Formula")) return <ME330_Lesson9 topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 11: Eccentric Axial Loading")) return <ME330_Lesson11 topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 12: Unsymmetric Bending")) return <ME330_Lesson12 topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 13: Beams in Bending & Shear/Moment")) return <ME330_Lesson13 topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 14: Shear and Bending Moment")) return <ME330_Lesson14 topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 15: V-M Diagram Practice")) return <ME330_Lesson15 topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 16: Transverse Shear Stresses")) return <ME330_Lesson16 topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 17: Stresses on Oblique Planes")) return <ME330_Lesson17 topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 18: Plane Stress Transformation I")) return <ME330_Lesson18 topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 19: Plane Stress Transformation II")) return <ME330_Lesson19 topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 20: Mohr's Circle Practice")) return <ME330_Lesson20 topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 21: 3D Mohr's Circle")) return <ME330_Lesson21 topicName={topicName} onComplete={onComplete} />;
+      // Unit 2
+      if (topicName.includes("Lesson 9:")) return <ME330_Lesson9 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 11:")) return <ME330_Lesson11 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 12:")) return <ME330_Lesson12 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 13:")) return <ME330_Lesson13 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 14:")) return <ME330_Lesson14 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 15:")) return <ME330_Lesson15 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 16:")) return <ME330_Lesson16 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 17:")) return <ME330_Lesson17 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 18:")) return <ME330_Lesson18 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 19:")) return <ME330_Lesson19 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 20:")) return <ME330_Lesson20 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 21:")) return <ME330_Lesson21 topicName={topicName} onComplete={onComplete} />;
 
-    // Unit 3
-    if (topicName.includes("Lesson 23: Strain Rosettes")) return <ME330_Lesson23 topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 24: Thin-Walled Pressure Vessels")) return <ME330_Lesson24 topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 25: Combined Loading I")) return <ME330_Lesson25 topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 26: Combined Loading II")) return <ME330_Lesson26 topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 27: Combined Loading III")) return <ME330_Lesson27 topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 29: Introduction to Finite Element Analysis")) return <ME330_Lesson29 topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 30: Beam Deflections by Integration")) return <ME330_Lesson30 topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 31: Beam Deflections by Superposition")) return <ME330_Lesson31 topicName={topicName} onComplete={onComplete} />;
-    if (topicName.includes("Lesson 32: Beam Deflection Practice")) return <ME330_Lesson32 topicName={topicName} onComplete={onComplete} />;
+      // Unit 3
+      if (topicName.includes("Lesson 23:")) return <ME330_Lesson23 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 24:")) return <ME330_Lesson24 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 25:")) return <ME330_Lesson25 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 26:")) return <ME330_Lesson26 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 27:")) return <ME330_Lesson27 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 29:")) return <ME330_Lesson29 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 30:")) return <ME330_Lesson30 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 31:")) return <ME330_Lesson31 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 32:")) return <ME330_Lesson32 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 33:")) return <ME330_Lesson33 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 34:")) return <ME330_Lesson34 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 35:")) return <ME330_Lesson35 topicName={topicName} onComplete={onComplete} />;
+
+      // Unit 4
+      if (topicName.includes("Lesson 37:")) return <ME330_Lesson37 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 38:")) return <ME330_Lesson38 topicName={topicName} onComplete={onComplete} />;
+      if (topicName.includes("Lesson 40:")) return <ME330_Lesson40 topicName={topicName} onComplete={onComplete} />;
+    }
     if (topicName.includes("Lesson 33: Statically Indeterminate Beam Deflections")) return <ME330_Lesson33 topicName={topicName} onComplete={onComplete} />;
     if (topicName.includes("Lesson 34: Statically Indeterminate Beam Deflections Practice")) return <ME330_Lesson34 topicName={topicName} onComplete={onComplete} />;
     if (topicName.includes("Lesson 35: Exam / GR 3 Review")) return <ME330_Lesson35 topicName={topicName} onComplete={onComplete} />;

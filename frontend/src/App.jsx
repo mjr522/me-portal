@@ -143,6 +143,7 @@ export default function App() {
                   />
                 ) : (
                   <TopicRouter
+                    courseId={courseId}
                     topicName={currentTopic}
                     unitKey={currentUnitKey}
                     onComplete={handleCompleteTopic}

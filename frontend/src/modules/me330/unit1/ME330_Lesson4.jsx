@@ -4,13 +4,25 @@ import katex from 'katex';
 import 'katex/dist/katex.min.css';
 
 function MathInline({ math }) {
-  const html = katex.renderToString(math, { throwOnError: false });
-  return <span dangerouslySetInnerHTML={{ __html: html }} />;
+  if (!math) return null;
+  try {
+    const k = katex?.default || katex;
+    const html = k.renderToString(math, { throwOnError: false });
+    return <span dangerouslySetInnerHTML={{ __html: html }} />;
+  } catch (e) {
+    return <span>{math}</span>;
+  }
 }
 
 function MathBlock({ math }) {
-  const html = katex.renderToString(math, { displayMode: true, throwOnError: false });
-  return <div dangerouslySetInnerHTML={{ __html: html }} />;
+  if (!math) return null;
+  try {
+    const k = katex?.default || katex;
+    const html = k.renderToString(math, { displayMode: true, throwOnError: false });
+    return <div dangerouslySetInnerHTML={{ __html: html }} />;
+  } catch (e) {
+    return <div>{math}</div>;
+  }
 }
 
 const THERMAL_MATS = {
@@ -20,7 +32,7 @@ const THERMAL_MATS = {
   invar: { name: 'Invar 36', alpha: 1.2e-6, E: 140, yield: 240, color: '#8b5cf6' },
 };
 
-export default function ME330_Lesson4() {
+export default function ME330_Lesson4({ topicName, onComplete }) {
   const [phase, setPhase] = useState('instructions');
   const [poeChoice, setPoeChoice] = useState(null);
 

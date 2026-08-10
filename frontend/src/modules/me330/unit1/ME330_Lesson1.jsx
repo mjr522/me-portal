@@ -4,13 +4,25 @@ import katex from 'katex';
 import 'katex/dist/katex.min.css';
 
 function MathInline({ math }) {
-  const html = katex.renderToString(math, { throwOnError: false });
-  return <span dangerouslySetInnerHTML={{ __html: html }} />;
+  if (!math) return null;
+  try {
+    const k = katex?.default || katex;
+    const html = k.renderToString(math, { throwOnError: false });
+    return <span dangerouslySetInnerHTML={{ __html: html }} />;
+  } catch (e) {
+    return <span>{math}</span>;
+  }
 }
 
 function MathBlock({ math }) {
-  const html = katex.renderToString(math, { displayMode: true, throwOnError: false });
-  return <div dangerouslySetInnerHTML={{ __html: html }} />;
+  if (!math) return null;
+  try {
+    const k = katex?.default || katex;
+    const html = k.renderToString(math, { displayMode: true, throwOnError: false });
+    return <div dangerouslySetInnerHTML={{ __html: html }} />;
+  } catch (e) {
+    return <div>{math}</div>;
+  }
 }
 
 const MATERIALS = {
@@ -21,7 +33,7 @@ const MATERIALS = {
   nylon: { name: 'Nylon 6,6', E: 3, E_pa: 3e9, yield: 75, color: '#ec4899' },
 };
 
-export default function ME330_Lesson1() {
+export default function ME330_Lesson1({ topicName, onComplete }) {
   // Phase state
   const [phase, setPhase] = useState('instructions');
   const [poeChoice, setPoeChoice] = useState(null);
@@ -78,7 +90,7 @@ export default function ME330_Lesson1() {
       type: 'scatter',
       mode: 'markers+text',
       name: 'Operating Point',
-      text: [`(${ (strain*1000).toFixed(3) } m\epsilon, ${stressMPa.toFixed(1)} MPa)`],
+      text: [`(${ (strain*1000).toFixed(3) } mm/m, ${stressMPa.toFixed(1)} MPa)`],
       textposition: 'top left',
       marker: { color: isYielded ? '#ef4444' : '#10b981', size: 14, symbol: 'diamond' }
     }
@@ -88,8 +100,8 @@ export default function ME330_Lesson1() {
     title: { text: `Stress-Strain Response (${mat.name})`, font: { color: '#f3f4f6', size: 16 } },
     paper_bgcolor: '#111827',
     plot_bgcolor: '#1f2937',
-    xaxis: { title: 'Strain \\(\\epsilon\\) (mm/m \\(\\times 10^{-3}\\))', color: '#9ca3af', gridcolor: '#374151' },
-    yaxis: { title: 'Normal Stress \\(\\sigma\\) (MPa)', color: '#9ca3af', gridcolor: '#374151' },
+    xaxis: { title: 'Strain ε (mm/m × 10⁻³)', color: '#9ca3af', gridcolor: '#374151' },
+    yaxis: { title: 'Normal Stress σ (MPa)', color: '#9ca3af', gridcolor: '#374151' },
     margin: { l: 50, r: 30, t: 40, b: 50 },
     showlegend: true,
     legend: { font: { color: '#e5e7eb' }, x: 0.05, y: 0.95 }
