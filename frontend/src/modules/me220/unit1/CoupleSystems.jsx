@@ -307,7 +307,7 @@ export default function CoupleSystems() {
 
   // Equivalent resultant moment Mr_A (Purple dashed circular arrow centered at A)
   if (Math.abs(Mr_A) > 0.05) {
-    const r_arc = 7 + Math.min(12, Math.abs(Mr_A) / 100);
+    const r_arc = 10 + Math.min(28, (Math.abs(Mr_A) / 4300) * 28);
     const num_points = 30;
     let start_ang = (-30 * Math.PI) / 180;
     let end_ang = (210 * Math.PI) / 180;

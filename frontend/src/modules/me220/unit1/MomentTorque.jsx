@@ -321,7 +321,7 @@ export default function MomentTorque() {
 
   // Moment rotation arc near O
   if (Mo !== 0) {
-    const radius_arc = 8 + Math.min(22, (Math.abs(Mo) / 7500) * 22);
+    const radius_arc = 10 + Math.min(28, (Math.abs(Mo) / 4300) * 28);
     const num_points = 30;
     let start_ang = (-30 * Math.PI) / 180;
     let end_ang = (210 * Math.PI) / 180;
@@ -342,7 +342,7 @@ export default function MomentTorque() {
       x: arcX,
       y: arcY,
       mode: 'lines',
-      line: { color: Mo > 0 ? '#a855f7' : '#f97316', width: 3.5 },
+      line: { color: Mo > 0 ? '#a855f7' : '#f97316', width: 4.5 },
       showlegend: false,
       hoverinfo: 'skip',
     });
