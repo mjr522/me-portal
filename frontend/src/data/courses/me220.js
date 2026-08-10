@@ -3,7 +3,7 @@
 export const me220Course = {
   id: "me220",
   code: "ME 220",
-  title: "Structural Mechanics & Materials",
+  title: "Fundamentals of Mechanics",
   subtitle: "An Interactive Engineering Learning Portal",
   description: "Explore fundamental static equilibrium, stress and strain, torsion, beam bending, and structural wing design.",
   badge: "Core Mechanics",
