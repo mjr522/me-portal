@@ -6,14 +6,18 @@ export default function CourseSelector({ currentCourseId, onSelectCourse }) {
 
   return (
     <div className="course-selector-bar">
-      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-        <span style={{ fontSize: '1.2rem' }}>🎓</span>
-        <span style={{ fontWeight: 600, fontSize: '0.92rem', color: 'var(--text-muted)' }}>SELECT COURSE:</span>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+        <span style={{ fontSize: '1.2rem' }}>⚙️</span>
+        <span style={{ fontWeight: 800, fontSize: '0.95rem', color: 'var(--text-main)', letterSpacing: '0.5px' }}>
+          MECHANICAL ENGINEERING PORTAL
+        </span>
+        <span style={{ color: 'var(--text-muted)', opacity: 0.4 }}>|</span>
+        <span style={{ fontWeight: 600, fontSize: '0.85rem', color: 'var(--text-muted)' }}>SELECT COURSE:</span>
         <select
           value={currentCourseId}
           onChange={(e) => onSelectCourse(e.target.value)}
           style={{
-            padding: '6px 12px',
+            padding: '6px 14px',
             borderRadius: '8px',
             border: '1px solid var(--border-light)',
             backgroundColor: 'var(--bg-card)',
@@ -32,7 +36,7 @@ export default function CourseSelector({ currentCourseId, onSelectCourse }) {
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-        <span className="course-badge-pill">Extensible Portal</span>
+        <span className="course-badge-pill">ME 220 Active</span>
       </div>
     </div>
   );
