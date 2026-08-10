@@ -450,10 +450,10 @@ export default function TorsionShear() {
           <div style={{ background: '#f1f5f9', borderRadius: '8px', padding: '12px 16px', fontFamily: 'monospace', fontSize: '0.85rem', marginTop: '15px', color: '#1e293b', borderLeft: '4px solid #f97316', lineHeight: 1.5 }}>
             <div><b>Torsional Stress Equations:</b></div>
             <div>• Outer Radius, c = {c} mm | Inner Radius, $r_i$ = {activeRi} mm</div>
-            <div>• Polar Moment, <b>J = $\frac{\pi}{2}(c^4 - r_i^4)$</b> = <b>{J.toExponential(4)} $\text{mm}^4$</b></div>
-            <div>• Max Shear Stress: <b>$\tau_{max} = \frac{T \cdot c}{J}$</b> = ({T} N-m · 1000 · {c} mm) / J = <b>{tauMax.toFixed(2)} MPa</b></div>
+            <div>• Polar Moment, <b>{"J = $\\frac{\\pi}{2}(c^4 - r_i^4)$"}</b> = <b>{J.toExponential(4)} $\text{mm}^4$</b></div>
+            <div>• Max Shear Stress: <b>{"$\\tau_{max} = \\frac{T \\cdot c}{J}$"}</b> = ({T} N-m · 1000 · {c} mm) / J = <b>{tauMax.toFixed(2)} MPa</b></div>
             {shaftType === 'hollow' && (
-              <div>• Min Shear Stress: <b>$\tau_{min} = \frac{T \cdot r_i}{J}$</b> = <b>{tauMin.toFixed(2)} MPa</b></div>
+              <div>• Min Shear Stress: <b>{"$\\tau_{min} = \\frac{T \\cdot r_i}{J}$"}</b> = <b>{tauMin.toFixed(2)} MPa</b></div>
             )}
             <div>• Status: <b style={{ color: isYielded ? '#b91c1c' : '#15803d' }}>{isYielded ? 'YIELDED (τ_max > 80 MPa)' : 'SAFE (τ_max ≤ 80 MPa)'}</b></div>
           </div>
@@ -481,7 +481,7 @@ export default function TorsionShear() {
                   Inside a circular shaft, torsional shear stress ($\tau$) is zero at the center and increases linearly to a maximum at the outer boundary ($c$):
                 </p>
                 <div style={{ background: 'white', padding: '8px 12px', borderRadius: '8px', margin: '10px 0', fontFamily: 'monospace', textAlign: 'center', border: '1px solid var(--border-light)' }}>
-                  $\tau = \frac{T \cdot \rho}{J}$
+                  {"$\\tau = \\frac{T \\cdot \\rho}{J}$"}
                 </div>
                 <button className="btn-primary" onClick={() => setPhase('guided_question')}>
                   Start Practice 🔍

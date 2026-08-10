@@ -322,7 +322,7 @@ export default function AngleOfTwist() {
             <div><b>Torsional Deformation (Angle of Twist):</b></div>
             <div>• Polar Inertia, <b>J = $\pi D^4 / 32$</b> = <b>{J.toExponential(4)} $\text{mm}^4$</b></div>
             <div>• Shear Modulus, <b>G</b> = <b>{selectedMat.G} MPa</b> ({selectedMat.name})</div>
-            <div>• Twist (radians): <b>$\phi = \frac{T \cdot L}{J \cdot G}$</b> = ({Tnmm} · {Lmm}) / (J · {selectedMat.G}) = <b>{phi.toFixed(5)} rad</b></div>
+            <div>• Twist (radians): <b>{"$\\phi = \\frac{T \\cdot L}{J \\cdot G}$"}</b> = ({Tnmm} · {Lmm}) / (J · {selectedMat.G}) = <b>{phi.toFixed(5)} rad</b></div>
             <div>• Twist (degrees): <b>$\theta = \phi \cdot (180/\pi)$</b> = <b>{theta.toFixed(3)}°</b></div>
           </div>
         </div>
@@ -345,7 +345,7 @@ export default function AngleOfTwist() {
                   When torque is applied to a circular shaft, the shaft deforms by twisting. The angle of twist ($\phi$ in radians) measures this angular deflection:
                 </p>
                 <div style={{ background: 'white', padding: '8px 12px', borderRadius: '8px', margin: '10px 0', fontFamily: 'monospace', textAlign: 'center', border: '1px solid var(--border-light)' }}>
-                  $\phi = \frac{T \cdot L}{J \cdot G}$
+                  {"$\\phi = \\frac{T \\cdot L}{J \\cdot G}$"}
                 </div>
                 <button className="btn-primary" onClick={() => setPhase('guided_question')}>Start Practice 🔍</button>
               </div>
@@ -448,7 +448,7 @@ export default function AngleOfTwist() {
                 </div>
                 <div style={{ fontSize: '0.82rem', lineHeight: 1.5 }}>
                   <b>Explanation:</b><br />
-                  Polar inertia $J = \frac{\pi D^4}{32}$ scales with $D^4$. Doubling diameter increases $J$ by $2^4 = 16$ times. Since $\phi = \frac{TL}{JG}$, increasing $J$ by 16 divides $\theta$ by 16 ($8.52^\circ \to 0.53^\circ$)!
+                  Polar inertia {"$J = \\frac{\\pi D^4}{32}$"} scales with $D^4$. Doubling diameter increases $J$ by $2^4 = 16\times$, which reduces twist by $16\times$.
                 </div>
                 <button className="btn-secondary" onClick={resetSimulator} style={{ marginTop: '15px' }}>Reset Simulator 🔄</button>
               </div>

@@ -289,7 +289,7 @@ export default function CombinedLoading() {
                   When members experience axial loads and bending moments simultaneously, normal stresses superimpose:
                 </p>
                 <div style={{ background: 'white', padding: '8px 12px', borderRadius: '8px', margin: '10px 0', fontFamily: 'monospace', textAlign: 'center', border: '1px solid var(--border-light)' }}>
-                  $\sigma = \pm \frac{P}{A} \pm \frac{M y}{I}$
+                  {"$\\sigma = \\pm \\frac{P}{A} \\pm \\frac{M y}{I}$"}
                 </div>
                 <button className="btn-primary" onClick={() => setPhase('guided_question')}>Start Practice 🔍</button>
               </div>
@@ -379,7 +379,7 @@ export default function CombinedLoading() {
                 </div>
                 <div style={{ fontSize: '0.82rem', lineHeight: 1.5 }}>
                   <b>Explanation:</b><br />
-                  Zero stress condition: $1 - \frac{6 e}{h} = 0 \implies e_{crit} = \frac{h}{6} = \frac{80}{6} \approx 13.33\text{ mm}$. Keeping $e \le h/6$ prevents tensile stresses in brittle materials.
+                  {"Zero stress condition: $1 - \\frac{6 e}{h} = 0 \\implies e_{crit} = \\frac{h}{6} = \\frac{80}{6} \\approx 13.33\\text{ mm}$. Keeping $e \\le h/6$ prevents tensile stresses in brittle materials."}
                 </div>
                 <button className="btn-secondary" onClick={resetSimulator} style={{ marginTop: '15px' }}>Reset Simulator 🔄</button>
               </div>

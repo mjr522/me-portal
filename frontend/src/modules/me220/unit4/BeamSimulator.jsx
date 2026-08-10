@@ -188,7 +188,7 @@ export default function BeamSimulator() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '15px' }}>
           <label style={{ fontSize: '0.9rem', display: 'flex', gap: '8px', cursor: submitted ? 'default' : 'pointer' }}>
             <input type="checkbox" checked={c1} disabled={submitted} onChange={(e) => setC1(e.target.checked)} />
-            1. Due to the vertical symmetry of the load, the reaction forces at the ends are equal: $R_A = R_B = \frac{w \cdot L}{2}$.
+            {"1. Due to the vertical symmetry of the load, the reaction forces at the ends are equal: $R_A = R_B = \\frac{w \\cdot L}{2}$."}
           </label>
           <label style={{ fontSize: '0.9rem', display: 'flex', gap: '8px', cursor: submitted ? 'default' : 'pointer' }}>
             <input type="checkbox" checked={c2} disabled={submitted} onChange={(e) => setC2(e.target.checked)} />

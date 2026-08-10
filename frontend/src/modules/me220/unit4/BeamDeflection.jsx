@@ -331,8 +331,8 @@ export default function BeamDeflection() {
                   Lateral loads create vertical elastic deflection ($\delta$):
                 </p>
                 <ul style={{ fontSize: '0.85rem', color: 'var(--text-muted)', paddingLeft: '20px', marginBottom: '15px' }}>
-                  <li><b>Cantilever (Tip Load P):</b> $\delta_{max} = \frac{P L^3}{3 E I}$</li>
-                  <li><b>Simply Supported (Center Load P):</b> $\delta_{max} = \frac{P L^3}{48 E I}$</li>
+                  <li><b>Cantilever (Tip Load P):</b> {"$\\delta_{max} = \\frac{P L^3}{3 E I}$"}</li>
+                  <li><b>Simply Supported (Center Load P):</b> {"$\\delta_{max} = \\frac{P L^3}{48 E I}$"}</li>
                 </ul>
                 <button className="btn-primary" onClick={() => setPhase('guided_question')}>Start Practice 🔍</button>
               </div>
