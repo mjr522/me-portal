@@ -247,7 +247,7 @@ export default function ParallelAxis() {
                   The <b>Parallel Axis Theorem</b> calculates the Area Moment of Inertia of composite sections about their neutral axis:
                 </p>
                 <div style={{ background: 'white', padding: '8px 12px', borderRadius: '8px', margin: '10px 0', fontFamily: 'monospace', textAlign: 'center', border: '1px solid var(--border-light)' }}>
-                  $I = \sum (I_{\text{centroid}} + A d^2)$
+                  {"$I = \\sum (I_{\\text{centroid}} + A d^2)$"}
                 </div>
                 <button className="btn-primary" onClick={() => setPhase('guided_question')}>Start Practice 🔍</button>
               </div>
