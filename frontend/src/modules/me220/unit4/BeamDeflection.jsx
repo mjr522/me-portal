@@ -305,9 +305,9 @@ export default function BeamDeflection() {
             <div>• Spar Inertia, <b>$I_x$</b> = <b>{(Ix / 1e6).toFixed(2)} $\times 10^6\text{ mm}^4$</b> (hollow box: {b}x{h}x{t} mm)</div>
             <div>• Elastic Modulus, <b>E</b> = <b>{selectedMat.E} MPa</b> ({selectedMat.name})</div>
             {support === 'cant' ? (
-              <div>• Cantilever tip deflection: <b>$\delta_{max} = \frac{P L^3}{3 E I}$</b> = ({PN}·{Lmm}³) / (3·{selectedMat.E}·{Ix.toFixed(0)}) = <b>{deltaMax.toFixed(2)} mm</b></div>
+              <div>• Cantilever tip deflection: <b>$\delta_{max} = \frac{P L^3}{3 E I}$</b> = ({PN}·{Lmm}{'³'}) / (3·{selectedMat.E}·{Ix.toFixed(0)}) = <b>{deltaMax.toFixed(2)} mm</b></div>
             ) : (
-              <div>• Simply supported center deflection: <b>$\delta_{max} = \frac{P L^3}{48 E I}$</b> = ({PN}·{Lmm}³) / (48·{selectedMat.E}·{Ix.toFixed(0)}) = <b>{deltaMax.toFixed(2)} mm</b></div>
+              <div>• Simply supported center deflection: <b>$\delta_{max} = \frac{P L^3}{48 E I}$</b> = ({PN}·{Lmm}{'³'}) / (48·{selectedMat.E}·{Ix.toFixed(0)}) = <b>{deltaMax.toFixed(2)} mm</b></div>
             )}
             <div>• Allowable deflection limit: <b>$\delta_{allow} = L/150$</b> = <b>{deltaAllow.toFixed(1)} mm</b></div>
           </div>
