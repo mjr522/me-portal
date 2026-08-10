@@ -7,15 +7,23 @@ export default function CourseSelector({ currentCourseId, onSelectCourse }) {
   return (
     <div className="course-selector-bar">
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
-        <span style={{ fontSize: '1.2rem' }}>⚙️</span>
-        <span style={{ fontWeight: 800, fontSize: '0.95rem', color: 'var(--text-main)', letterSpacing: '0.5px' }}>
-          MECHANICAL ENGINEERING PORTAL
-        </span>
+        <div 
+          onClick={() => onSelectCourse(null)}
+          style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}
+          title="Return to USAFA Mechanical Engineering Portal Catalog Home"
+        >
+          <span style={{ fontSize: '1.2rem' }}>⚙️</span>
+          <span style={{ fontWeight: 800, fontSize: '0.95rem', color: 'var(--text-main)', letterSpacing: '0.5px' }}>
+            USAFA MECHANICAL ENGINEERING PORTAL
+          </span>
+        </div>
+        
         <span style={{ color: 'var(--text-muted)', opacity: 0.4 }}>|</span>
-        <span style={{ fontWeight: 600, fontSize: '0.85rem', color: 'var(--text-muted)' }}>SELECT COURSE:</span>
+        <span style={{ fontWeight: 600, fontSize: '0.85rem', color: 'var(--text-muted)' }}>COURSE:</span>
+        
         <select
-          value={currentCourseId}
-          onChange={(e) => onSelectCourse(e.target.value)}
+          value={currentCourseId || ''}
+          onChange={(e) => onSelectCourse(e.target.value === '' ? null : e.target.value)}
           style={{
             padding: '6px 14px',
             borderRadius: '8px',
@@ -27,6 +35,7 @@ export default function CourseSelector({ currentCourseId, onSelectCourse }) {
             cursor: 'pointer'
           }}
         >
+          <option value="">🏠 Portal Catalog Home</option>
           {courses.map((course) => (
             <option key={course.id} value={course.id}>
               {course.code}: {course.title}
@@ -36,7 +45,17 @@ export default function CourseSelector({ currentCourseId, onSelectCourse }) {
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-        <span className="course-badge-pill">ME 220 Active</span>
+        {currentCourseId ? (
+          <button 
+            className="btn-secondary" 
+            onClick={() => onSelectCourse(null)}
+            style={{ width: 'auto', padding: '6px 14px', fontSize: '0.82rem' }}
+          >
+            ← Return to Catalog
+          </button>
+        ) : (
+          <span className="course-badge-pill">USAFA Portal</span>
+        )}
       </div>
     </div>
   );
