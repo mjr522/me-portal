@@ -321,7 +321,7 @@ export default function MomentTorque() {
 
   // Moment rotation arc near O
   if (Mo !== 0) {
-    const radius_arc = 8 + Math.min(22, Math.abs(Mo) / 100);
+    const radius_arc = 8 + Math.min(22, (Math.abs(Mo) / 7500) * 22);
     const num_points = 30;
     let start_ang = (-30 * Math.PI) / 180;
     let end_ang = (210 * Math.PI) / 180;
