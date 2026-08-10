@@ -41,7 +41,7 @@ export default function UnitOverview({ unit, completedTopics, onLaunchLesson }) 
                     padding: '16px 20px',
                     display: 'flex',
                     alignItems: 'center',
-                    justify-content: 'space-between',
+                    justifyContent: 'space-between',
                     gap: '15px'
                   }}
                 >
