@@ -1,0 +1,67 @@
+Project Summary: Structural Mechanics Course Portal Development
+
+Project Context & Vision
+The overarching goal of this project is to develop a comprehensive, interactive digital ecosystem to serve as a complete, modern replacement for traditional textbooks and publisher-provided homework platforms.
+
+Target Audience: Cadets and instructors in the Department of Mechanical Engineering.
+
+Core Philosophy: Guided "vibe coding" using natural language to orchestrate fully functional software, leaving manual code implementation entirely to autonomous agents.
+
+Educational Objectives:
+
+Build dynamic, interactive simulation widgets with user-adjusted "levers" to build deep technical physical intuition.
+
+Embed concept-check quizzes directly into the workspace to enforce rapid learning feedback loops.
+
+Scale up to a comprehensive Course Portal covering several courses, multi-page syllabus content, problem sets, and potentially text-based strategy games based on specialized mechanical engineering disciplines.
+
+Technical Infrastructure Status
+The core architectural backbone of a single course has been successfully initialized and validated on a Windows local execution platform.
+
+Virtual Environment (.venv) Isolation:
+
+Status: Fully configured and locked down.
+
+Implementation: An isolated virtual runtime kitchen (.venv) resides natively within the root project folder. It abstracts away over 13,000 localized helper scripts and dependencies (including networking libraries, data-handling engines, and mathematical rendering modules) safely apart from the global machine configuration.
+
+The Launch Utility (launch.bat):
+To enable smooth application launches outside of an IDE environment, a specialized Windows Batch script (launch.bat) has been custom-built. It utilizes explicit relative macros to bypass fragile Windows environment-checking variables which frequently fail inside cloud directories. It direct-boots the local virtual engine using the following core routing: "%~dp0.venv\Scripts\python.exe" -m streamlit run app.py.
+
+Front-End User Experience & Navigation Architecture
+The application layout employs a highly optimized, professional UX strategy known as Progressive Disclosure, minimizing cognitive overload for cadets by layering information across clear sub-menus.
+
+Level 1: The Main Hub Dashboard (app.py / home.py)
+Upon execution, the master router file (app.py) initializes a clean, high-level Course Landing Page. This hub displays 4 distinct, visual tiles/cards representing the major foundational segments (Units) of the curriculum syllabus.
+
+Level 2: The Unit Spokes & Nested Sidebars (unit_x/sidebar.py)
+When a cadet selects a specific Unit card, the landing grid seamlessly clears and re-renders into a multi-page textbook interface:
+
+The Nested Sidebar: A vertical left-hand index tree displays a modular checklist of 8 to 12 individual chronological lessons dedicated exclusively to that unit's topics.
+
+The Global Escape Valve: A persistent, high-visibility "⬅ Return to Course Home" button is pinned at the topmost header of the sidebar, resetting the state machine and returning the cadet to the 4-card master dashboard with a single click.
+
+Active Features & Current Core Demonstrations
+Unit 3: Structural Mechanics
+
+Lesson 3.9: Uniformly Distributed Load (UDL) Beam Simulator
+
+Functionality: A demonstration that calculates reaction moments based on a uniformly distributed load across the beam.
+
+Student Control Interface: Interactive slider bars allow cadets to dynamically alter variables for Load Intensity (w) and Beam Length (L) in real time.
+
+Visual Graphics: The core calculations feed instantly into an integrated canvas, rendering a live mechanical plot of the distribution behavior.
+
+Pedagogical Integration: Currently pinned directly above the live physics plot is an multiple-answer concept quiz designed to challenge students' proportional reasoning. The system delivers immediate corrective explanation text upon selection.
+
+Placeholder & Scaffolding Layer
+
+All remaining 8–12 lesson channels across the 4 units are cleanly integrated as structural placeholders. Selecting a developing lesson triggers one of several default lesson views, often built from the first topic in the unit.
+
+Development Playbook & Agent Guidelines for Future Chats
+When continuing work on this project folder via an autonomous agent workspace, look to the following behavioral parameters:
+
+Source File Sovereignty: The local files inside the workspace are the ultimate source of truth. Always scan the directory structural paths (such as unit_1/lesson_2_beam_demo.py) before attempting to refactor or rewrite variables.
+
+Context Preservation: Do not consolidate separate pages into one giant monolithic block. Maintain the relative routing mechanism of app.py.
+
+No-Friction Content Injection: When bringing placeholder lessons to life, preserve the existing .venv packages and write cleanly structured, localized equations utilizing Python's native Streamlit, NumPy, and Matplotlib capabilities.

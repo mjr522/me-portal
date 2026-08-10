@@ -1,0 +1,53 @@
+Below are guidelines for the creation of Interactive Physics Widgets (IPW). They are supposed to be helpful, but should not be considered "mandatory". If you would like to deviate from them, simply say what you'd like to do differently and why. There are likely many situations where they are not relevant, so please do not feel constrained by them. However, again, if you are going to deviate from them while creating or working on an IPW, please confirm with me first.
+
+
+1. Core Philosophy
+Interactive Physics Widgets (IPWs) are the centerpiece of the portal. They are not just calculators; they are "Sandbox" environments designed to build physical intuition. IPWs must prioritize cause-and-effect visual learning, adhering strictly to the Predict-Observe-Explain (POE) instructional loop.
+
+2. UI/UX Layout Architecture
+Every IPW must utilize a strict Two-Column Layout to prevent cognitive overload and scrolling fatigue:
+
+Left Column (70% Width) - The Sandbox: Contains the interactive visual simulation (e.g., beam diagrams, vector resolutions). This column relies on client-side rendering for real-time manipulation.
+
+Right Column (30% Width) - The Sidecar: A stateful st.container that paginates through instructions, guided questions, and the POE loop using st.session_state. Only one "tile" of text/questions is visible at a time.
+
+3. The Pedagogical State Machine (The POE Loop)
+The Sidecar must guide the cadet through a specific sequence using st.session_state.phase. The defining feature of this sequence is the Productive Failure Lockout.
+
+Phase 1: Instructions/Guided: Standard interaction. Sliders are active.
+
+Phase 2: Predict: * Mechanic: Inputs are explicitly LOCKED (disabled=True). * Action: The cadet is given a conceptual scenario and forced to commit to a multiple-choice hypothesis without testing it first.
+
+Phase 3: Observe & Correct: * Mechanic: Inputs UNLOCK. * Action: The cadet is instructed to use the IPW to test their hypothesis. If the simulation disproves their guess, they are encouraged to change their answer before final submission.
+
+Phase 4: Explain: Answers lock, and the widget provides immediate, paragraph-long corrective feedback explaining the underlying physics of the visual result.
+
+4. Technical Architecture: The Client-Side Sandbox Hack
+Streamlit’s native server-side widgets (st.slider) cause severe lag/debouncing, destroying the 60fps real-time "cause-and-effect" feeling.
+
+To achieve buttery-smooth dragging while preserving Streamlit's backend state machine, agents must use the Iframe Synchronization Hack:
+
+Bypass Native Widgets: Do not use st.slider for the main physics inputs.
+
+Client-Side Rendering: Build the visual graph (via Plotly.js) and HTML range sliders natively in JavaScript.
+
+Embed via Iframe: Inject this custom HTML/JS block into the Streamlit left column using st.components.v1.html().
+
+State Synchronization: * Use Python f-strings to pass Streamlit's st.session_state.sliders_locked boolean into the JS code, enabling the Iframe to lock its HTML inputs during the Predict phase.
+
+Use the browser's sessionStorage in the JS code to persist slider positions. If the Sidecar triggers a Streamlit rerun, the Iframe must read sessionStorage to ensure the cadet's slider values do not reset to default.
+
+Use a reset counter in Python passed to the JS to clear sessionStorage only when a "Reset Simulator" button is clicked.
+
+5. Visual Engineering Standards
+When generating Matplotlib or Plotly visuals, agents must adhere to the following professional engineering standards:
+
+Scale Intuition (Lock Axes): By default, lock the X and Y axes to the absolute theoretical maximums of the current problem bounds. Auto-scaling destroys the visual intuition of changing magnitudes. Provide a small st.toggle('Auto-Fit Axes') for users who wish to zoom in.
+
+Preserve Grid Lines: Always keep background grid lines visible to allow cadets to visually trace intercepts across stacked plots (e.g., from a shear diagram to a moment diagram).
+
+Smart Vector Graphics: Do not draw a downward arrow labeled "-20 kN". Write conditional logic so that negative forces physically flip the arrow to point upward.
+
+Clean Hover Data: Format Plotly hovertemplate strings to show clean engineering units (e.g., Position: 5.0 m <br> Shear: 20.0 kN), hiding ugly default trace names.
+
+Tight Margins: Minimize plot margins, titles, and vertical_spacing so the entire IPW UI fits on a standard 1080p laptop screen without vertical scrolling.
